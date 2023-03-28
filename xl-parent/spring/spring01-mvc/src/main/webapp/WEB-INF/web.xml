@@ -1,0 +1,41 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+  <servlet>
+    <servlet-name>springMVC</servlet-name>
+    <!-- 在webmvc.jar里面servlet的包里面找 ，复制全路径名去掉class即可,如果报红就是tomcat环境没有配进项目中-->
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <!-- 初始化参数 ，指定核心配置文件路径
+             spring-servlet.xml因为被配置在servlet的初始化过程中，
+             所以如果不初始化servlet，
+             那么spring-servlet.xml是不会被发现的
+         -->
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:springMVC.xml</param-value>
+    </init-param>
+    <!-- tomcat启动时即加载,12345代表顺序 -->
+    <load-on-startup>1</load-on-startup>
+    <!-- 如果没有指定核心配置文件，默认会去找servlet-name+ -servlet.xml
+        此处即springMVC-servlet.xml
+        一般而言，会在项目目录下新建配置文件夹 source folder config
+     -->
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>springMVC</servlet-name>
+    <!--　1、拦截*.do、*.htm， 例如：/user/add.do
+　　　　      这是最传统的方式，最简单也最实用。不会导致静态文件（jpg,js,css）被拦截。
+　　      2、拦截/，例如：/user/add
+　　　　      可以实现现在很流行的REST风格。很多互联网类型的应用很喜欢这种风格的URL。
+　　　　      弊端：会导致静态文件（jpg,js,css）被拦截后不能正常显示。想实现REST风格，事情就是麻烦一些。后面有解决办法还算简单。
+　　      3、拦截/*，这是一个错误的方式，请求可以走到Action中，但转到jsp时再次被拦截，不能访问到jsp。-->
+    <url-pattern>*.action</url-pattern>
+  </servlet-mapping>
+
+
+</web-app>
+

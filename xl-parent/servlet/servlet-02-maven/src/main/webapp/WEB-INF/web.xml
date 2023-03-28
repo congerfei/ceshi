@@ -1,0 +1,81 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<!--配置是有顺序的-->
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+
+  <!--全局过滤器，如果有多个过滤器，则会根据web.xml的排序来进行过滤-->
+  <filter>
+    <filter-name>FilterTest</filter-name>
+    <filter-class>com.xl.servlet02maven.FilterTest</filter-class>
+    <init-param>
+      <param-name>百度网址</param-name>
+      <param-value>www.baidu.com</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>FilterTest</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+
+
+  <!--编写Servlet的映射：我们的写的java程序，但是要通过浏览器访问，而浏览器需要连接web服务器，
+  所以要在web服务器中注册我们写的Servlet，还需要给他一个浏览器能够访问的地址-->
+  <servlet>
+    <servlet-name>servlet1</servlet-name>
+    <servlet-class>com.xl.servlet02maven.MyServlet01</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UploadServlet</servlet-name>
+    <servlet-class>com.xl.servlet02maven.UploadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>refreshTest</servlet-name>
+    <servlet-class>com.xl.servlet02maven.RefreshTest</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ErrorServlet</servlet-name>
+    <servlet-class>com.xl.servlet02maven.ErrorServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DownLoadServlet</servlet-name>
+    <servlet-class>com.xl.servlet02maven.down.DownLoadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DownLoadServlet</servlet-name>
+    <url-pattern>/down</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ErrorServlet</servlet-name>
+    <url-pattern>/err</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>refreshTest</servlet-name>
+    <url-pattern>/re</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>servlet1</servlet-name>
+    <url-pattern>/my1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadServlet</servlet-name>
+    <url-pattern>/upload</url-pattern>
+  </servlet-mapping>
+
+
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/err</location>
+  </error-page>
+
+
+</web-app>

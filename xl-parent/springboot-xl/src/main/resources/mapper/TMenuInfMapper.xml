@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xl.springbootxl.mapper.TMenuInfMapper">
+
+    <resultMap id="BaseResultMap" type="com.xl.springbootxl.pojo.TMenuInf">
+        <result column="MENU_ID" jdbcType="VARCHAR" property="menuId" />
+        <result column="MENU_NM" jdbcType="VARCHAR" property="menuNm" />
+        <result column="MENU_LVL" jdbcType="DECIMAL" property="menuLvl" />
+        <result column="DISP_NO" jdbcType="DECIMAL" property="dispNo" />
+        <result column="SUP_MENU" jdbcType="VARCHAR" property="supMenu" />
+        <result column="MENU_ICON" jdbcType="VARCHAR" property="menuIcon" />
+        <result column="CHNL_TP" jdbcType="VARCHAR" property="chnlTp" />
+        <result column="MENU_URL" jdbcType="VARCHAR" property="menuUrl" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        MENU_ID,MENU_NM,MENU_LVL,
+        DISP_NO,SUP_MENU,MENU_ICON,
+        CHNL_TP,MENU_URL
+    </sql>
+
+    <select id="queryById" resultMap="BaseResultMap">
+        select * from T_MENU_INF where menu_id = #{menuId}
+    </select>
+
+
+
+    <select id="queryMenuTree" resultMap="BaseResultMap">
+        select * from T_MENU_INF t order by t.MENU_ID
+    </select>
+
+    <insert id="insert" parameterType="com.xl.springbootxl.pojo.TMenuInf">
+        insert into T_MENU_INF (MENU_ID, MENU_NM, MENU_LVL,
+                                DISP_NO, SUP_MENU, MENU_ICON,
+                                CHNL_TP, MENU_URL)
+        values (#{menuId,jdbcType=VARCHAR}, #{menuNm,jdbcType=VARCHAR}, #{menuLvl,jdbcType=DECIMAL},
+                #{dispNo,jdbcType=DECIMAL}, #{supMenu,jdbcType=VARCHAR}, #{menuIcon,jdbcType=VARCHAR},
+                #{chnlTp,jdbcType=VARCHAR}, #{menuUrl,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.xl.springbootxl.pojo.TMenuInf">
+        insert into T_MENU_INF
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="menuId != null">
+                MENU_ID,
+            </if>
+            <if test="menuNm != null">
+                MENU_NM,
+            </if>
+            <if test="menuLvl != null">
+                MENU_LVL,
+            </if>
+            <if test="dispNo != null">
+                DISP_NO,
+            </if>
+            <if test="supMenu != null">
+                SUP_MENU,
+            </if>
+            <if test="menuIcon != null">
+                MENU_ICON,
+            </if>
+            <if test="chnlTp != null">
+                CHNL_TP,
+            </if>
+            <if test="menuUrl != null">
+                MENU_URL,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="menuId != null">
+                #{menuId,jdbcType=VARCHAR},
+            </if>
+            <if test="menuNm != null">
+                #{menuNm,jdbcType=VARCHAR},
+            </if>
+            <if test="menuLvl != null">
+                #{menuLvl,jdbcType=DECIMAL},
+            </if>
+            <if test="dispNo != null">
+                #{dispNo,jdbcType=DECIMAL},
+            </if>
+            <if test="supMenu != null">
+                #{supMenu,jdbcType=VARCHAR},
+            </if>
+            <if test="menuIcon != null">
+                #{menuIcon,jdbcType=VARCHAR},
+            </if>
+            <if test="chnlTp != null">
+                #{chnlTp,jdbcType=VARCHAR},
+            </if>
+            <if test="menuUrl != null">
+                #{menuUrl,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+</mapper>

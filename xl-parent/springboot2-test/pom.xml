@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!--这个也是一个父项目，如果创建的时候没有要记得加上，不然这就是顶级项目，没有继承springboot和springCloud的了-->
+	<parent>
+		<artifactId>xl-parent</artifactId>
+		<groupId>com.xl</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<modules>
+        <module>springboot-01-provider</module>
+		<module>springboot-02-consumer</module>
+        <module>springboot-03-config-client</module>
+	</modules>
+
+	<groupId>com.xl</groupId>
+	<artifactId>springboot2-test</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<name>springboot2-test</name>
+	<description>Demo project for Spring Boot</description>
+
+	<packaging>pom</packaging>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+
+</project>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<title>CodePen - Vanilla Movie Image Slider</title>
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<div class="app">
+  <div class="app__background"></div>
+  <div class="app__inner">
+	<div class="slider">
+	  <ul class="slider__list"></ul>
+	</div>
+	<div class="text">
+	  <div class="text__inner">
+		<div class="text__slider-btn" onClick="rotate()">
+		  &#8594;
+		</div>
+		<div class="text__group">
+		  <h3 class="text__title"></h3>
+		  <div class="text__rating">
+			<span class="text__rating-average">平均评级： </span>
+			<ul class="text__rating-star-list"></ul>
+			<span class="text__rating-number"></span>
+		  </div>
+		  <p class="text__synopsis"></p>
+		</div>
+	  </div>
+	</div>
+  </div>
+</div>
+
+<script  src="js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css美化</title>
+    <!--    水平对齐 图片和字对齐 -->
+    <style>
+        <!--        a 标签去下划线-->
+        a{
+            text-decoration: none;
+        }
+        /*鼠标悬停状态*/
+        a:hover{
+            color: blue;
+            font-size: 50px;
+        }
+        /*鼠标点击未松开状态*/
+        a:active{
+            color: darkmagenta;
+        }
+        a,img{
+            vertical-align: middle;
+        }
+        /*阴影，  颜色  水平偏移 垂直便宜  阴影半径  偏移量可以为负数*/
+        #price{
+            text-shadow: aquamarine 2px 2px 2px;
+        }
+    </style>
+</head>
+<body>
+<p>
+    <img src="../img/1.jpg" alt="" height="100" width="100">
+    <a href=""> 风景这边独好</a>
+<p id="price">99</p>
+</p>
+
+</body>
+</html>

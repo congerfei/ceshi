@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css选择器</title>
+</head>
+<body>
+    <p>
+        选择器：选择某一个或者一类标签，html结构是一个dom树 html是根 ，优先级：id>class>标签
+    </p>
+    <p>标签选择器：h1{}  用的少，很少所有标签一起改</p>
+    <p>类选择器 .class{}  标签上有class属性的，可以多个标签归类 </p>
+    <p>id选择器  #id{}   标签id一定要唯一 ,不然直接报错了d</p>
+
+    <p>高级选择器</p>
+    <p>
+        层次选择器：
+        1.后代选择器            body p{}   body后面所有的P标签 <br>
+        2.子选择器              body>p{}  连着body子节点的P<br>
+        3.相邻兄弟选择器         .actice + p  选择下面的一个p<br>
+        4.通用选择器             .active~p  同级的所有P<br>
+    </p>
+    <p>
+        结构伪类选择器：（相当于加了条件）
+
+        1.ul的第一个子元素   ul li:first-child{}<br>
+        2.ul的最后一个元素   ul li:last-child{}<br>
+        3.选中第一p         p:nth-child(1) 选中父级然后选择第一个元素，并且第一个是p 才生效<br>
+        4.选中第二个p        p:nth-of-typer 选中父类的p元素的第二个<br>
+
+        5. hover<br>
+    </p>
+
+    <p>
+        属性选择器：(=绝对等于  *=包含 类似like)---------------最推荐<br>
+        1.存在id属性的a     a[id]{}<br>
+        2.id=first的a     a[id=first]{}<br>
+        3.class中有links的元素的a  a[class*="links"]{}<br>
+        4.什么开头的     a[href^=http]{}<br>
+        5.以什么结尾     a[href$=jpg]<br>
+    </p>
+
+
+
+<p>p1</p>
+<p class="active">p2</p>
+<p>p3</p>
+<ul>
+    <li>
+        <p>p4</p>
+    </li>
+    <li>
+        <p>p4</p>
+    </li>
+    <li>
+        <p>p4</p>
+    </li>
+</ul>
+
+</body>
+</html>

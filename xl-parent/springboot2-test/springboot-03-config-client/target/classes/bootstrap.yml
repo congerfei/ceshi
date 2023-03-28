@@ -1,0 +1,15 @@
+# bootstrap 系统级别的配置，要优先于application,我们用于配置关键信息
+spring:
+  cloud:
+    config:
+      name: application  #git上资源的名称,不用后缀
+      profile: test
+      label: master
+      uri: http://localhost:3344  #配置服务config-server的ip+port
+
+
+
+
+
+
+

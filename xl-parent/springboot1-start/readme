@@ -1,0 +1,29 @@
+1.springboot1-start  用于测试spring boot的各种启动方式
+启动方式1:  通过直接点击主启动类来启动
+启动方式2:  使用install插件（使用maven构建项目默认就会继承父pom有的插件）,打包成jar（默认的）/war（通过packing设置）
+    然后使用Java环境来运行，切换到该jar目录，然后jar -jar springboot1-start-1.0-SNAPSHOT 即可运行（可以详细了解下maven的生命周期）
+启动方式3: 同方式2不过是war包（去除了内置tomcat），部署到tomcat内启动tomcat即可，生产上使用这种
+启动方式4: 安装tomcat-maven-plugin插件或者spring-boot-maven-plugin插件
+
+了解下maven的基本操作
+验证 validate	验证项目	验证项目是否正确且所有必须信息是可用的
+编译 compile	执行编译	源代码编译在此阶段完成
+测试 Test	测试	使用适当的单元测试框架（例如JUnit）运行测试。
+包装 package	打包	创建JAR/WAR包如在 pom.xml 中定义提及的包
+检查 verify	检查	对集成测试的结果进行检查，以保证质量达标
+安装 install	安装	安装打包的项目到本地仓库，以供其他项目使用
+部署 deploy	部署	拷贝最终的工程包到远程仓库中，以共享给其他开发人员和工程
+
+package命令完成了项目编译、单元测试、打包功能，但没有把打好的可执行jar包（war包或其它形式的包）布署到本地maven仓库和远程maven私服仓库
+install命令完成了项目编译、单元测试、打包功能，同时把打好的可执行jar包（war包或其它形式的包）布署到本地maven仓库，但没有布署到远程maven私服仓库
+deploy命令完成了项目编译、单元测试、打包功能，同时把打好的可执行jar包（war包或其它形式的包）布署到本地maven仓库和远程maven私服仓库
+
+  windows端口查杀
+  1.查  netstat -ano |findstr "8080"
+  会展示进程id
+  2.查  tasklist |findstr "27892"
+  通过id查进程名称,
+  3.杀进程
+  taskkill /f /im javaw.exe  通过进程名称
+  taskkill /f /pid 3352       通过进程id
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用插件jquery.confetti.js在网页中实现飞舞五彩纸屑示例_bootschool.net</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style code.type="text/css">
+      html, body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        background-color:purple;
+        color:#fff;
+      }
+      h1{
+        font-size:20px;
+        text-align:center;
+        margin-top: 90px;
+        margin-bottom: 30px;
+      }
+      canvas {
+        display: block;
+        position: relative;
+        zindex: 1;
+        pointer-events: none;
+      }
+      .btn-wrapper {
+        text-align: center;
+        z-index:99;//这个很重要,不然按钮点不动
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>使用插件jquery.confetti.js在网页中实现飞舞五彩纸屑示例</h1>
+      <div class="btn-wrapper">
+        <button class="btn btn-default" id="startConfetti">启动</button>
+        <button class="btn btn-danger" id="stopConfetti">停止</button>
+        <button class="btn btn-success" id="restartConfetti">重启</button>
+      </div>
+    </div>
+    <p style="visibility:hidden;">
+      <a href="http://www.bootschool.com">www.bootschool.com提供</a>
+    </p>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.confetti.js"></script>
+    <script>
+      $(function () {
+         $('#startConfetti').click();
+      });
+    </script>
+  </body>
+</html>

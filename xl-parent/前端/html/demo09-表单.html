@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+</head>
+<body>
+<!--
+
+    method
+        get ：   不安全  但是高效
+        post：  安全 可以传输大文件
+-->
+<form action="demo01.html" method="get">
+<!-- input 属性 code.type  name  value初始值  size  maxlength最大字符数  checked 是否被选中-->
+<!--文本框text  默认的 readonly 仅读  placeholder提示信息  required 非空判断，空则不能提交 pattern 正则表达式-->
+    <p>
+        名字： <input code.type="text" name="username" placeholder="请输入用户名" required>
+        例子： <input code.type="text" name="name" value="xl" readonly />
+        报错信息隐藏，需要的时候显示或者默认帮它提交的信息隐藏掉：<input code.type="text" name="error" value="error"  hidden /><br>
+<!--        自定义邮箱使用正则验证(自己网上搜可靠的官网即可)：<input code.type="text" name="myemail"  pattern="/^[a-z\d]+(\.[a-z\d]+)*@([\da-z](-[\da-z])?)+(\.{1,2}[a-z]+)+$/" />-->
+    </p>
+
+
+<!--密码框password -->
+    <p>密码： <input code.type="password" name="pwd"></p>
+<!--    单选框radio  checked 默认选中  disabled禁用-->
+    <p>性别：
+        <input code.type="radio" name="sex" value="boy">男
+        <input code.type="radio" name="sex" value="girl">女
+        <input code.type="radio" name="sex" value="girl" disabled>太监
+    </p>
+<!-- 多选框  checked 默认选中  -->
+    <p>爱好：
+    <input code.type="checkbox" value="sleep" name="hobby">睡觉
+    <input code.type="checkbox" value="code" name="hobby">敲代码
+    <input code.type="checkbox" value="chat" name="hobby">聊天
+    <input code.type="checkbox" value="game" name="hobby">游戏
+    </p>
+<!-- 按钮 button-->
+    <p>按钮：
+        <input code.type="button" value="点击边长" name="btn1">
+<!-- 图片按钮image：类似于图片超链接 点击后会直接提交-->
+        <input code.type="image" src="../img/1.jpg" width="30" height="30">
+    </p>
+
+    <p>国家：
+<!--  下拉单选框  select option组合 selected 表示被选中 默认是第一个被选中     -->
+
+        <select name="列表" id="">
+            <option value="china">中国</option>
+            <option value="US">美国</option>
+            <option value="RS">瑞士</option>
+            <option value="YD">印度</option>
+        </select>
+    </p>
+<!--文本域 多行文本-->
+    <p>反馈：
+        <textarea name="textarea" cols="10" rows="5"> 默认文本内容</textarea>
+    </p>
+<!-- 文件域    -->
+    <p>
+        <input code.type="file" name=""files>
+    </p>
+<!--  扩充 ：邮件，url,数字的验证  -->
+    <p>
+        邮件（带验证）：<input code.type="email" name="email"><br>
+        url（带验证）:<input code.type="url" name =url><br>
+        <!-- 数字验证  step 可以每次增加或者减少多少       -->
+        数字（待验证）：<input code.type="number" name="num" max="100" step="10"><br>
+        滑块（音量）：<input code.type="range" name="voice" min="0" max="100"><br>
+        搜索框:<input code.type="search" name="search" >
+    </p>
+
+<!--    增强鼠标可用性 需要配合选择器使用-->
+    <label for="mark">你点我试试</label>
+    <input code.type="text" name="mark" id="mark">
+
+<!--提交 重置   -->
+    <p>
+        <input code.type="submit">
+        <input code.type="reset">
+    </p>
+
+
+
+
+</form>
+
+</body>
+</html>

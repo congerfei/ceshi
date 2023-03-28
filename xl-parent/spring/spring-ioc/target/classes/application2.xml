@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <!--ioc入门,无参构造器的方式-->
+    <bean id="student" class="com.xl.springioc.Student"></bean><!--默认会找无参构造器，只要没有重写构造器，一个类默认提供-->
+
+
+    <!--property是用来描述一个类的属性,基本类型的封装类、String等需要值的类型用value赋值,引用类型用ref赋值  -->
+    <bean id="person" class="com.xl.springioc.Person">
+        <property name="pid" value="1"></property>
+        <property name="pname" value="vae"></property>
+        <property name="students">
+            <ref bean="student"/>
+        </property>
+
+        <property name="lists">
+            <list>
+                <value>1</value>
+                <ref bean="student"/>
+                <value>vae</value>
+            </list>
+        </property>
+
+        <property name="sets">
+            <set>
+                <value>1</value>
+                <ref bean="student"/>
+                <value>vae</value>
+            </set>
+        </property>
+
+        <property name="maps">
+            <map>
+                <entry key="m1" value="1"></entry>
+                <entry key="m2" >
+                    <ref bean="student"/>
+                </entry>
+            </map>
+        </property>
+
+        <property name="properties">
+            <props>
+                <prop key="p1">p1</prop>
+                <prop key="p2">p2</prop>
+            </props>
+        </property>
+
+    </bean>
+
+</beans>

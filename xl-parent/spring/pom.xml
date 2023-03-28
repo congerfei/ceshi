@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <parent>
+    <artifactId>xl-parent</artifactId>
+    <groupId>com.xl</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.xl</groupId>
+  <artifactId>spring</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <modules>
+    <module>spring01-mvc</module>
+    <module>spring-ioc</module>
+    <module>spring-aop</module>
+    <module>spring-annotation</module>
+  </modules>
+  <packaging>pom</packaging>
+
+  <name>spring</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+
+</project>
