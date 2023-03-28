@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xl.springbootxl.mapper.TRlInfMapper">
+  <resultMap id="BaseResultMap" type="com.xl.springbootxl.pojo.TRlInf">
+    <result column="RL_ID" jdbcType="VARCHAR" property="rlId" />
+    <result column="RL_NM" jdbcType="VARCHAR" property="rlNm" />
+    <result column="RL_DSC" jdbcType="VARCHAR" property="rlDsc" />
+    <result column="LAST_UDT_DT_TM" jdbcType="TIMESTAMP" property="lastUdtDtTm" />
+    <result column="PROV_CD" jdbcType="VARCHAR" property="provCd" />
+    <result column="CITY_CD" jdbcType="VARCHAR" property="cityCd" />
+    <result column="ZON_CD" jdbcType="VARCHAR" property="zonCd" />
+    <result column="STR_CD" jdbcType="VARCHAR" property="strCd" />
+    <result column="RL_LV" jdbcType="VARCHAR" property="rlLv" />
+    <result column="LAST_OPT_USR" jdbcType="VARCHAR" property="lastOptUsr" />
+    <result column="RL_STATUS" jdbcType="VARCHAR" property="rlStatus" />
+  </resultMap>
+  <insert id="insert" parameterType="com.xl.springbootxl.pojo.TRlInf">
+    insert into T_RL_INF (RL_ID, RL_NM, RL_DSC, 
+      LAST_UDT_DT_TM, PROV_CD, CITY_CD, 
+      ZON_CD, STR_CD, RL_LV, 
+      LAST_OPT_USR, RL_STATUS)
+    values (#{rlId,jdbcType=VARCHAR}, #{rlNm,jdbcType=VARCHAR}, #{rlDsc,jdbcType=VARCHAR}, 
+      #{lastUdtDtTm,jdbcType=TIMESTAMP}, #{provCd,jdbcType=VARCHAR}, #{cityCd,jdbcType=VARCHAR}, 
+      #{zonCd,jdbcType=VARCHAR}, #{strCd,jdbcType=VARCHAR}, #{rlLv,jdbcType=VARCHAR}, 
+      #{lastOptUsr,jdbcType=VARCHAR}, #{rlStatus,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xl.springbootxl.pojo.TRlInf">
+    insert into T_RL_INF
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rlId != null">
+        RL_ID,
+      </if>
+      <if test="rlNm != null">
+        RL_NM,
+      </if>
+      <if test="rlDsc != null">
+        RL_DSC,
+      </if>
+      <if test="lastUdtDtTm != null">
+        LAST_UDT_DT_TM,
+      </if>
+      <if test="provCd != null">
+        PROV_CD,
+      </if>
+      <if test="cityCd != null">
+        CITY_CD,
+      </if>
+      <if test="zonCd != null">
+        ZON_CD,
+      </if>
+      <if test="strCd != null">
+        STR_CD,
+      </if>
+      <if test="rlLv != null">
+        RL_LV,
+      </if>
+      <if test="lastOptUsr != null">
+        LAST_OPT_USR,
+      </if>
+      <if test="rlStatus != null">
+        RL_STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rlId != null">
+        #{rlId,jdbcType=VARCHAR},
+      </if>
+      <if test="rlNm != null">
+        #{rlNm,jdbcType=VARCHAR},
+      </if>
+      <if test="rlDsc != null">
+        #{rlDsc,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUdtDtTm != null">
+        #{lastUdtDtTm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="provCd != null">
+        #{provCd,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCd != null">
+        #{cityCd,jdbcType=VARCHAR},
+      </if>
+      <if test="zonCd != null">
+        #{zonCd,jdbcType=VARCHAR},
+      </if>
+      <if test="strCd != null">
+        #{strCd,jdbcType=VARCHAR},
+      </if>
+      <if test="rlLv != null">
+        #{rlLv,jdbcType=VARCHAR},
+      </if>
+      <if test="lastOptUsr != null">
+        #{lastOptUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="rlStatus != null">
+        #{rlStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="queryById" resultMap="BaseResultMap">
+    select * from T_RL_INF t where t.RL_ID = #{rlId}
+  </select>
+</mapper>

@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper:根标签，namespace：命名空间，随便写，一般保证命名空间唯一，session调用的时候会用到命名空间的 -->
+<mapper namespace="com.xl.springbootxl.mapper.TUsrInfMapper">
+
+    <resultMap id="BaseResultMap" type="com.xl.springbootxl.pojo.TUsrInf">
+        <!--@Table SMG_T_USR_INF  ，绝大部分字段是对不上的，所有全部直接写上就行了-->
+        <result property="usrId" column="USR_ID" jdbcType="VARCHAR"/>
+        <result property="pswd" column="PSWD" jdbcType="VARCHAR"/>
+        <result property="usrNm" column="USR_NM" jdbcType="VARCHAR"/>
+        <result property="gndCd" column="GND_CD" jdbcType="VARCHAR"/>
+        <result property="crdtTpcd" column="CRDT_TPCD" jdbcType="VARCHAR"/>
+        <result property="crdtNo" column="CRDT_NO" jdbcType="VARCHAR"/>
+        <result property="blngInsid" column="BLNG_INSID" jdbcType="VARCHAR"/>
+        <result property="usrTpcd" column="USR_TPCD" jdbcType="VARCHAR"/>
+        <result property="usrStcd" column="USR_STCD" jdbcType="VARCHAR"/>
+        <result property="brthDt" column="BRTH_DT" jdbcType="VARCHAR"/>
+        <result property="telctcmodMblphNo" column="TELCTCMOD_MBLPH_NO" jdbcType="VARCHAR"/>
+        <result property="telctcmodWrkNo" column="TELCTCMOD_WRK_NO" jdbcType="VARCHAR"/>
+        <result property="usrPost" column="USR_POST" jdbcType="VARCHAR"/>
+        <result property="rmrk" column="RMRK" jdbcType="VARCHAR"/>
+        <result property="landCnt" column="LAND_CNT" jdbcType="NUMERIC"/>
+        <result property="lastUdtDtTm" column="LAST_UDT_DT_TM" jdbcType="TIMESTAMP"/>
+        <result property="lastLgnDtTm" column="LAST_LGN_DT_TM" jdbcType="TIMESTAMP"/>
+        <result property="lastOptUsr" column="LAST_OPT_USR" jdbcType="VARCHAR"/>
+        <result property="provCd" column="PROV_CD" jdbcType="VARCHAR"/>
+        <result property="cityCd" column="CITY_CD" jdbcType="VARCHAR"/>
+        <result property="zonCd" column="ZON_CD" jdbcType="VARCHAR"/>
+        <result property="strCd" column="STR_CD" jdbcType="VARCHAR"/>
+        <result property="insNm" column="INS_NM" jdbcType="VARCHAR"/>
+        <result property="lawNo" column="LAW_NO" jdbcType="VARCHAR"/>
+        <result property="curRlId" column="CUR_RL_ID" jdbcType="VARCHAR"/>
+        <result property="curBlngInsid" column="CUR_BLNG_INSID" jdbcType="VARCHAR"/>
+        <result property="inptTm" column="INPT_TM" jdbcType="TIMESTAMP"/>
+        <result property="lastPswdDtTm" column="LAST_PSWD_DT_TM" jdbcType="TIMESTAMP"/>
+        <result property="usrIdMd5" column="USR_ID_MD5" jdbcType="VARCHAR"/>
+        <result property="telctcmodMblphNoMd5" column="TELCTCMOD_MBLPH_NO_MD5" jdbcType="VARCHAR"/>
+        <result property="createUser" column="CREATE_USER" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+    <select id="queryById" resultMap="BaseResultMap">
+        select * from T_USR_INF where USR_ID = #{usrId}
+    </select>
+
+    <select id="querySmgTUsrInf" resultMap="BaseResultMap">
+        select * from T_USR_INF
+        <where>
+        <if test="usrId != null and usrId != ''">
+            and USR_ID = #{usrId}
+        </if>
+        <if test="pswd != null and pswd != ''">
+            and PSWD = #{pswd}
+        </if>
+        <if test="usrNm != null and usrNm != ''">
+            and USR_NM = #{usrNm}
+        </if>
+        <if test="gndCd != null and gndCd != ''">
+            and GND_CD = #{gndCd}
+        </if>
+        <if test="crdtTpcd != null and crdtTpcd != ''">
+            and CRDT_TPCD = #{crdtTpcd}
+        </if>
+        <if test="crdtNo != null and crdtNo != ''">
+            and CRDT_NO = #{crdtNo}
+        </if>
+        <if test="blngInsid != null and blngInsid != ''">
+            and BLNG_INSID = #{blngInsid}
+        </if>
+        <if test="usrTpcd != null and usrTpcd != ''">
+            and USR_TPCD = #{usrTpcd}
+        </if>
+        <if test="usrStcd != null and usrStcd != ''">
+            and USR_STCD = #{usrStcd}
+        </if>
+        <if test="brthDt != null and brthDt != ''">
+            and BRTH_DT = #{brthDt}
+        </if>
+        <if test="telctcmodMblphNo != null and telctcmodMblphNo != ''">
+            and TELCTCMOD_MBLPH_NO = #{telctcmodMblphNo}
+        </if>
+        <if test="telctcmodWrkNo != null and telctcmodWrkNo != ''">
+            and TELCTCMOD_WRK_NO = #{telctcmodWrkNo}
+        </if>
+        <if test="usrPost != null and usrPost != ''">
+            and USR_POST = #{usrPost}
+        </if>
+        <if test="rmrk != null and rmrk != ''">
+            and RMRK = #{rmrk}
+        </if>
+        <if test="landCnt != null">
+            and LAND_CNT = #{landCnt}
+        </if>
+        <if test="lastUdtDtTm != null">
+            and LAST_UDT_DT_TM = #{lastUdtDtTm}
+        </if>
+        <if test="lastLgnDtTm != null">
+            and LAST_LGN_DT_TM = #{lastLgnDtTm}
+        </if>
+        <if test="lastOptUsr != null and lastOptUsr != ''">
+            and LAST_OPT_USR = #{lastOptUsr}
+        </if>
+        <if test="provCd != null and provCd != ''">
+            and PROV_CD = #{provCd}
+        </if>
+        <if test="cityCd != null and cityCd != ''">
+            and CITY_CD = #{cityCd}
+        </if>
+        <if test="zonCd != null and zonCd != ''">
+            and ZON_CD = #{zonCd}
+        </if>
+        <if test="strCd != null and strCd != ''">
+            and STR_CD = #{strCd}
+        </if>
+        <if test="insNm != null and insNm != ''">
+            and INS_NM = #{insNm}
+        </if>
+        <if test="lawNo != null and lawNo != ''">
+            and LAW_NO = #{lawNo}
+        </if>
+        <if test="curRlId != null and curRlId != ''">
+            and CUR_RL_ID = #{curRlId}
+        </if>
+        <if test="curBlngInsid != null and curBlngInsid != ''">
+            and CUR_BLNG_INSID = #{curBlngInsid}
+        </if>
+        <if test="inptTm != null">
+            and INPT_TM = #{inptTm}
+        </if>
+        <if test="lastPswdDtTm != null">
+            and LAST_PSWD_DT_TM = #{lastPswdDtTm}
+        </if>
+        <if test="usrIdMd5 != null and usrIdMd5 != ''">
+            and USR_ID_MD5 = #{usrIdMd5}
+        </if>
+        <if test="telctcmodMblphNoMd5 != null and telctcmodMblphNoMd5 != ''">
+            and TELCTCMOD_MBLPH_NO_MD5 = #{telctcmodMblphNoMd5}
+        </if>
+        <if test="createUser != null and createUser != ''">
+            and CREATE_USER = #{createUser}
+        </if>
+        </where>
+    </select>
+
+
+
+    <insert id="insert" parameterType="com.xl.springbootxl.pojo.TUsrInf">
+        insert into T_USR_INF (USR_ID, PSWD, USR_NM,
+                               GND_CD, CRDT_TPCD, CRDT_NO,
+                               BLNG_INSID, USR_TPCD, USR_STCD,
+                               BRTH_DT, TELCTCMOD_MBLPH_NO, TELCTCMOD_WRK_NO,
+                               USR_POST, RMRK, LAND_CNT,
+                               LAST_UDT_DT_TM, LAST_LGN_DT_TM, LAST_OPT_USR,
+                               PROV_CD, CITY_CD, ZON_CD, STR_CD,
+                               INS_NM, LAW_NO, CUR_RL_ID,
+                               CUR_BLNG_INSID, INPT_TM, LAST_PSWD_DT_TM,
+                               USR_ID_MD5, TELCTCMOD_MBLPH_NO_MD5, CREATE_USER
+        )
+        values (#{usrId,jdbcType=VARCHAR}, #{pswd,jdbcType=VARCHAR}, #{usrNm,jdbcType=VARCHAR},
+                #{gndCd,jdbcType=VARCHAR}, #{crdtTpcd,jdbcType=VARCHAR}, #{crdtNo,jdbcType=VARCHAR},
+                #{blngInsid,jdbcType=VARCHAR}, #{usrTpcd,jdbcType=VARCHAR}, #{usrStcd,jdbcType=VARCHAR},
+                #{brthDt,jdbcType=VARCHAR}, #{telctcmodMblphNo,jdbcType=VARCHAR}, #{telctcmodWrkNo,jdbcType=VARCHAR},
+                #{usrPost,jdbcType=VARCHAR}, #{rmrk,jdbcType=VARCHAR}, #{landCnt,jdbcType=DECIMAL},
+                #{lastUdtDtTm,jdbcType=TIMESTAMP}, #{lastLgnDtTm,jdbcType=TIMESTAMP}, #{lastOptUsr,jdbcType=VARCHAR},
+                #{provCd,jdbcType=CHAR}, #{cityCd,jdbcType=CHAR}, #{zonCd,jdbcType=CHAR}, #{strCd,jdbcType=CHAR},
+                #{insNm,jdbcType=VARCHAR}, #{lawNo,jdbcType=VARCHAR}, #{curRlId,jdbcType=VARCHAR},
+                #{curBlngInsid,jdbcType=VARCHAR}, #{inptTm,jdbcType=TIMESTAMP}, #{lastPswdDtTm,jdbcType=TIMESTAMP},
+                #{usrIdMd5,jdbcType=VARCHAR}, #{telctcmodMblphNoMd5,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}
+               )
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.xl.springbootxl.pojo.TUsrInf">
+        insert into T_USR_INF
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="usrId != null">
+                USR_ID,
+            </if>
+            <if test="pswd != null">
+                PSWD,
+            </if>
+            <if test="usrNm != null">
+                USR_NM,
+            </if>
+            <if test="gndCd != null">
+                GND_CD,
+            </if>
+            <if test="crdtTpcd != null">
+                CRDT_TPCD,
+            </if>
+            <if test="crdtNo != null">
+                CRDT_NO,
+            </if>
+            <if test="blngInsid != null">
+                BLNG_INSID,
+            </if>
+            <if test="usrTpcd != null">
+                USR_TPCD,
+            </if>
+            <if test="usrStcd != null">
+                USR_STCD,
+            </if>
+            <if test="brthDt != null">
+                BRTH_DT,
+            </if>
+            <if test="telctcmodMblphNo != null">
+                TELCTCMOD_MBLPH_NO,
+            </if>
+            <if test="telctcmodWrkNo != null">
+                TELCTCMOD_WRK_NO,
+            </if>
+            <if test="usrPost != null">
+                USR_POST,
+            </if>
+            <if test="rmrk != null">
+                RMRK,
+            </if>
+            <if test="landCnt != null">
+                LAND_CNT,
+            </if>
+            <if test="lastUdtDtTm != null">
+                LAST_UDT_DT_TM,
+            </if>
+            <if test="lastLgnDtTm != null">
+                LAST_LGN_DT_TM,
+            </if>
+            <if test="lastOptUsr != null">
+                LAST_OPT_USR,
+            </if>
+            <if test="provCd != null">
+                PROV_CD,
+            </if>
+            <if test="cityCd != null">
+                CITY_CD,
+            </if>
+            <if test="zonCd != null">
+                ZON_CD,
+            </if>
+            <if test="strCd != null">
+                STR_CD,
+            </if>
+            <if test="insNm != null">
+                INS_NM,
+            </if>
+            <if test="lawNo != null">
+                LAW_NO,
+            </if>
+            <if test="curRlId != null">
+                CUR_RL_ID,
+            </if>
+            <if test="curBlngInsid != null">
+                CUR_BLNG_INSID,
+            </if>
+            <if test="inptTm != null">
+                INPT_TM,
+            </if>
+            <if test="lastPswdDtTm != null">
+                LAST_PSWD_DT_TM,
+            </if>
+            <if test="usrIdMd5 != null">
+                USR_ID_MD5,
+            </if>
+            <if test="telctcmodMblphNoMd5 != null">
+                TELCTCMOD_MBLPH_NO_MD5,
+            </if>
+            <if test="createUser != null">
+                CREATE_USER,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="usrId != null">
+                #{usrId,jdbcType=VARCHAR},
+            </if>
+            <if test="pswd != null">
+                #{pswd,jdbcType=VARCHAR},
+            </if>
+            <if test="usrNm != null">
+                #{usrNm,jdbcType=VARCHAR},
+            </if>
+            <if test="gndCd != null">
+                #{gndCd,jdbcType=VARCHAR},
+            </if>
+            <if test="crdtTpcd != null">
+                #{crdtTpcd,jdbcType=VARCHAR},
+            </if>
+            <if test="crdtNo != null">
+                #{crdtNo,jdbcType=VARCHAR},
+            </if>
+            <if test="blngInsid != null">
+                #{blngInsid,jdbcType=VARCHAR},
+            </if>
+            <if test="usrTpcd != null">
+                #{usrTpcd,jdbcType=VARCHAR},
+            </if>
+            <if test="usrStcd != null">
+                #{usrStcd,jdbcType=VARCHAR},
+            </if>
+            <if test="brthDt != null">
+                #{brthDt,jdbcType=VARCHAR},
+            </if>
+            <if test="telctcmodMblphNo != null">
+                #{telctcmodMblphNo,jdbcType=VARCHAR},
+            </if>
+            <if test="telctcmodWrkNo != null">
+                #{telctcmodWrkNo,jdbcType=VARCHAR},
+            </if>
+            <if test="usrPost != null">
+                #{usrPost,jdbcType=VARCHAR},
+            </if>
+            <if test="rmrk != null">
+                #{rmrk,jdbcType=VARCHAR},
+            </if>
+            <if test="landCnt != null">
+                #{landCnt,jdbcType=DECIMAL},
+            </if>
+            <if test="lastUdtDtTm != null">
+                #{lastUdtDtTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastLgnDtTm != null">
+                #{lastLgnDtTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastOptUsr != null">
+                #{lastOptUsr,jdbcType=VARCHAR},
+            </if>
+            <if test="provCd != null">
+                #{provCd,jdbcType=CHAR},
+            </if>
+            <if test="cityCd != null">
+                #{cityCd,jdbcType=CHAR},
+            </if>
+            <if test="zonCd != null">
+                #{zonCd,jdbcType=CHAR},
+            </if>
+            <if test="strCd != null">
+                #{strCd,jdbcType=CHAR},
+            </if>
+            <if test="insNm != null">
+                #{insNm,jdbcType=VARCHAR},
+            </if>
+            <if test="lawNo != null">
+                #{lawNo,jdbcType=VARCHAR},
+            </if>
+            <if test="curRlId != null">
+                #{curRlId,jdbcType=VARCHAR},
+            </if>
+            <if test="curBlngInsid != null">
+                #{curBlngInsid,jdbcType=VARCHAR},
+            </if>
+            <if test="inptTm != null">
+                #{inptTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastPswdDtTm != null">
+                #{lastPswdDtTm,jdbcType=TIMESTAMP},
+            </if>
+            <if test="usrIdMd5 != null">
+                #{usrIdMd5,jdbcType=VARCHAR},
+            </if>
+            <if test="telctcmodMblphNoMd5 != null">
+                #{telctcmodMblphNoMd5,jdbcType=VARCHAR},
+            </if>
+            <if test="createUser != null">
+                #{createUser,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+</mapper>
