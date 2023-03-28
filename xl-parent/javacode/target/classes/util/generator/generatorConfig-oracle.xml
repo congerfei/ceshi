@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="MyGereator" targetRuntime="MyBatis3">
+
+        <!-- 利用这个标签去掉注释 -->
+        <commentGenerator>
+            <!-- 去掉注释 -->
+            <property name="suppressAllComments" value="true"/>
+            <!-- 去掉时间戳 -->
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+                        connectionURL="jdbc:oracle:thin:@//192.168.43.16:1521/helowinXDB"
+                        userId="test"
+                        password="test">
+        </jdbcConnection>
+
+        <!-- java JDBC类型解析器，默认即可 -->
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- 指定javabean的生成策略,‘.’代表当前项目路径此处应该是 xl 项目 -->
+        <javaModelGenerator targetPackage="com.xl.pojo" targetProject=".\commons-xl\src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- sql映射策略  -->
+        <sqlMapGenerator targetPackage="mapper"  targetProject=".\commons-xl\src\main\resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!-- 指定mapper接口的位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.xl.dao"  targetProject=".\commons-xl\src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!-- 对应的表 -->
+        <table tableName="SMG_T_USR_INF" domainObjectName="User"></table>
+
+    </context>
+</generatorConfiguration>

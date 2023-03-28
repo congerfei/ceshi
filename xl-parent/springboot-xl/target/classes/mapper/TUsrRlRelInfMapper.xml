@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xl.springbootxl.mapper.TUsrRlRelInfMapper">
+  <resultMap id="BaseResultMap" type="com.xl.springbootxl.pojo.TUsrRlRelInf">
+    <result column="USR_ID" jdbcType="VARCHAR" property="usrId" />
+    <result column="RL_ID" jdbcType="VARCHAR" property="rlId" />
+    <result column="LAST_UDT_DT_TM" jdbcType="TIMESTAMP" property="lastUdtDtTm" />
+    <result column="LAST_OPT_USR" jdbcType="VARCHAR" property="lastOptUsr" />
+    <result column="USR_RL_STCD" jdbcType="VARCHAR" property="usrRlStcd" />
+  </resultMap>
+  <insert id="insert" parameterType="com.xl.springbootxl.pojo.TUsrRlRelInf">
+    insert into T_USR_RL_REL_INF (USR_ID, RL_ID, LAST_UDT_DT_TM, 
+      LAST_OPT_USR, USR_RL_STCD)
+    values (#{usrId,jdbcType=VARCHAR}, #{rlId,jdbcType=VARCHAR}, #{lastUdtDtTm,jdbcType=TIMESTAMP}, 
+      #{lastOptUsr,jdbcType=VARCHAR}, #{usrRlStcd,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xl.springbootxl.pojo.TUsrRlRelInf">
+    insert into T_USR_RL_REL_INF
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="usrId != null">
+        USR_ID,
+      </if>
+      <if test="rlId != null">
+        RL_ID,
+      </if>
+      <if test="lastUdtDtTm != null">
+        LAST_UDT_DT_TM,
+      </if>
+      <if test="lastOptUsr != null">
+        LAST_OPT_USR,
+      </if>
+      <if test="usrRlStcd != null">
+        USR_RL_STCD,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="usrId != null">
+        #{usrId,jdbcType=VARCHAR},
+      </if>
+      <if test="rlId != null">
+        #{rlId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUdtDtTm != null">
+        #{lastUdtDtTm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastOptUsr != null">
+        #{lastOptUsr,jdbcType=VARCHAR},
+      </if>
+      <if test="usrRlStcd != null">
+        #{usrRlStcd,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="selectRoleByUserId" resultMap="BaseResultMap">
+    select * from  T_USR_RL_REL_INF where USR_ID = #{usrId,jdbcType=VARCHAR}
+  </select>
+</mapper>

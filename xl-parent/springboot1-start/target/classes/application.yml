@@ -1,0 +1,32 @@
+#切换配置   命令行：--spring.profiles.active=dev    配置文件：spring.profiles.active=dev   jvm参数：-Dspring.profiles.active=dev
+#默认配置
+server:
+  port: 8089
+spring:
+  profiles:
+    active: dev
+
+
+---
+#开发环境
+server:
+  port: 8081
+spring:
+  profiles: dev
+
+---
+#测试环境
+server:
+  port: 8082
+spring:
+  profiles: test
+
+---
+#生产环境
+server:
+  port: 8083
+spring:
+  profiles: prod
+
+
+
