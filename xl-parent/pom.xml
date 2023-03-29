@@ -19,6 +19,7 @@
         <module>springboot2-test</module>
         <module>springboot3-admin</module>
         <module>springboot4-config</module>
+        <module>springboot5-wxgzh</module>
         <module>springboot-xl</module>
         <module>shiro</module>
         <module>springboot5-actitvti</module>
