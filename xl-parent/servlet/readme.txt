@@ -18,3 +18,9 @@ public void contextInitialized(ServletContextEvent event)方法，而在监听�
 因此，当ServletContext创建时我们可以创建applicationContext对象，当ServletContext销毁时，我们可以销毁applicationContext对象。这样applicationContext就和ServletContext“共生死了”。
 
 6.创建一个servlet-04-jsp   准备集成jsp但是感觉不用写
+
+总结：
+Servlet实现方式
+实现Servlet接口
+继承GenericServelt抽象类（这个类是Servlet接口的一级实现类）
+继承HttpServlet抽象类就可以间接的实现Servlet接口（位于javax.servlet.http包中的HttpServlet抽象类继承自GenericServlet类，是Servlet接口的二级实现类）

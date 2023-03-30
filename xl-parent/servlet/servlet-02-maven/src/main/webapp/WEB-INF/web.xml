@@ -23,7 +23,7 @@
 
 
   <!--编写Servlet的映射：我们的写的java程序，但是要通过浏览器访问，而浏览器需要连接web服务器，
-  所以要在web服务器中注册我们写的Servlet，还需要给他一个浏览器能够访问的地址-->
+  所以要在web服务器中注册我们写的Servlet，还需要给他一个浏览器能够访问的地址 servlet-mapping中找  -->
   <servlet>
     <servlet-name>servlet1</servlet-name>
     <servlet-class>com.xl.servlet02maven.MyServlet01</servlet-class>
@@ -59,6 +59,8 @@
     <servlet-name>refreshTest</servlet-name>
     <url-pattern>/re</url-pattern>
   </servlet-mapping>
+
+<!--  eg：http://localhost:8080/servlet02/servlet1 -->
   <servlet-mapping>
     <servlet-name>servlet1</servlet-name>
     <url-pattern>/my1</url-pattern>

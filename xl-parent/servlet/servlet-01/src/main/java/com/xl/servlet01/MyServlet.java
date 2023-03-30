@@ -1,7 +1,6 @@
 package com.xl.servlet01;
 
 import javax.servlet.GenericServlet;
-import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import java.io.IOException;
@@ -26,7 +25,7 @@ import java.io.PrintWriter;
 
 public class MyServlet extends GenericServlet {
     @Override
-    public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
+    public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws IOException {
         //得到输出流PrinterWriter对象，Servlet使用输出流来产生响应
         PrintWriter out = servletResponse.getWriter();
         //使用输出流对象向客户端发送字符
