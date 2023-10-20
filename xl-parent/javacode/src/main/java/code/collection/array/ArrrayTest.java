@@ -55,7 +55,7 @@ public class ArrrayTest {
             System.out.print(i);
         }
 
-        //数组新增 ,如果插入两个元素中间的时候,需要将后面的后移
+        //数组新增
         arr[1]=1;
 
         System.out.println(Arrays.toString(arr));
@@ -107,6 +107,7 @@ public class ArrrayTest {
      * 数组的遍历
      *   1.forEach进行遍历
      *   2.通过属性大小进行for循环遍历
+     *   3.Arrays来遍历数组并转成字符串
      */
     @Test
     public  void test5(){
@@ -127,6 +128,11 @@ public class ArrrayTest {
         for (int i = 0; i < array.length; i++) {
             log.info(array[i]);
         }
+
+        /**
+         *
+         */
+        log.info(Arrays.toString(array));
     }
 
     /**
@@ -139,6 +145,9 @@ public class ArrrayTest {
     }
 
 
+    /**
+     * 证明if-else只进入一个分支
+     */
     @Test
     public  void test7(){
         if(7>0){
@@ -150,6 +159,24 @@ public class ArrrayTest {
         }else{
             log.info("4");
         }
+    }
+
+    /**
+     * 数组的拷贝
+     *  1.新增一个同等大小的数组依次赋值
+     *  2.Arrays.copyOf
+     *  3.Arrays.copyofRange   拷贝一个数组的一部分
+     *  4.System.arraycopy   c语言实现的更快
+     *  5.arr.clone()
+     */
+    @Test
+    public  void test8(){
+        int[] arr = {1,2,3,4,5};
+        int[] copy = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            copy[i] = arr[i];
+        }
+
     }
 
 

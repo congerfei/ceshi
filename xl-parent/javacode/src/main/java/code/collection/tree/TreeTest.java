@@ -1,5 +1,12 @@
 package code.collection.tree;
 
+import code.collection.tree.tree.TreeNode;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.Scanner;
+
 /**
  *  二叉搜索数：
  *  遍历树是一种特定的顺序访问树的每一个节点，比较常用的有前序遍历、中序遍历和后续遍历。而二叉搜索树最常用的就是 中序遍历 ，
@@ -20,10 +27,37 @@ package code.collection.tree;
  * 红黑树保证最长路径不超过最短路径的二倍，因而近似平衡（最短路径就是全黑节点，最长路径就是一个红节点一个黑节点，当从根节点到叶子节点的路径上黑色节点相同时，最长路径刚好是最短路径的两倍
  * 每一个节点都是有一个或者2个null节点的  距离是根节点到空节点的个数
  */
+@Slf4j
 public class TreeTest {
 
-    public static void main(String[] args) {
-        System.out.println("这里只写一些基础概念");
+    @Before
+    public void before(){
+        TreeNode<Integer> root = new TreeNode<>(0);
+        TreeNode<Integer> left1 = new TreeNode<>(-2);
+        TreeNode<Integer> right1 = new TreeNode<>(4);
+
     }
+
+    /**
+     * 递归打印N的阶乘
+     */
+    @Test
+    public void test1(){
+        log.info("请输入一个正整数N");
+        Scanner sc = new Scanner(System.in);
+        String next = sc.nextLine(); //在Test下面可能不生效 需要在edit custom VM Options 配置 -Deditable.java.test.console=true
+        int n = Integer.parseInt(next.trim());
+        int tmp= 1;
+        int total=0;
+        while(tmp<=n){
+            log.info("tmp此时的值："+tmp);
+            total = tmp * tmp++;
+        }
+        log.info("总数："+total);
+
+    }
+
+
+
 
 }

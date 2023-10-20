@@ -1,5 +1,6 @@
 package code.collection;
 
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -60,6 +61,10 @@ public class DouDiZhu {
         lookPoker("player2", playerSet2, hm);
         lookPoker("player3", playerSet3, hm);
         lookPoker("dp", dpSet, hm);
+
+        System.out.println("Default Charset=" + Charset.defaultCharset());
+        System.out.println("file.encoding=" + System.getProperty("file.encoding"));
+        System.out.println("Default Charset=" + Charset.defaultCharset());
     }
 
     /**

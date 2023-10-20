@@ -1,5 +1,11 @@
 package code.system;
 
+import org.junit.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStreamWriter;
+import java.nio.charset.Charset;
+
 /**
  * Author: xl
  * date :2020/12/29 10:18
@@ -17,5 +23,19 @@ public class SystemTest {
     public static void main(String[] args) {
         System.out.println(System.currentTimeMillis());
         System.out.println(System.getenv());//系统的环境变量
+    }
+
+    @Test
+    public void test01(){
+        System.out.println("Default Charset=" + Charset.defaultCharset());
+        System.out.println("file.encoding=" + System.getProperty("file.encoding"));
+        System.out.println("Default Charset=" + Charset.defaultCharset());
+        System.out.println("Default Charset in Use=" + getDefaultCharSet());
+    }
+
+    private static String getDefaultCharSet() {
+        OutputStreamWriter writer = new OutputStreamWriter(new ByteArrayOutputStream());
+        String enc = writer.getEncoding();
+        return enc;
     }
 }
