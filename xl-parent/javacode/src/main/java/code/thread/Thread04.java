@@ -30,7 +30,7 @@ public class Thread04 implements Runnable {
         Thread04 thread04 = new Thread04();
         Thread thread = new Thread(thread04);
         thread.start();
-        for(int i =0;i<1000;i++){
+        for(int i =0;i<20;i++){
             System.out.println("main线程在跑"+i);
             while (i==10){
                 thread04.stop();
